@@ -9,7 +9,7 @@ G96 S650 M03; Set cutting speed to 650rpm in ofrward direction
 G50 S3500; Set cutting speed limit to 3500rpm
 G71 P10 Q20 U0.2 W0.2 D0.5 F0.2; Stock Removal Cycle
 M08; Coolant ON
-G20; Select inches as metric system
+G20; Select imperial system
 G00 X2.662 Z0.1; Rapid motion positioning to coordinates
 N10; Start trajectory
 
@@ -62,7 +62,7 @@ G96 S650 M03; Set cutting speed to 650rpm in ofrward direction
 G50 S3500; Set cutting speed limit to 3500rpm
 G71 P10 Q20 U0.2 W0.2 D0.5 F0.2; Stock Removal Cycle
 M08; Coolant ON
-G20; Select inches as metric system
+G20; Select imperial system
 G00 X2.559 Z0.1; Rapid motion positioning to coordinates
 N10; Start trajectory
 
@@ -106,4 +106,44 @@ M05; Stop spindle
 M09; Coolant OFF
 M30; Program End/Reset
 
+;***************************************************************************
+
+;******************************* Ejercicio 3 *******************************
+;Medida inicial del tejo: diámetro = 30mm , largo = 85mm
+
+;Preparing CNC Lathe      
+G28 U0 W0; Go to machine zero 
+G96 S650 M03; Set cutting speed to 650rpm in ofrward direction
+G50 S3500; Set cutting speed limit to 3500rpm
+G71 P10 Q20 U0.2 W0.2 D0.5 F0.2; Stock Removal Cycle
+M08; Coolant ON
+G21; Select metric system
+G00 X40 Z5; Rapid motion positioning to coordinates
+N10; Start trajectory
+
+
+;Cutting operations         
+
+;Outter cutting
+G01 X-10 Z0;
+G01 X0 Z3;
+G01 X-4 Z2;
+G02 X-6 Z8.97 R6;
+G01 X0 Z1;
+G02 X-4 Z2 R2;
+G03 X0 Z44.02 R85;
+G02 X3.25 Z3.16 R2;
+G03 X-1.25 Z10.84 R10.64;
+G01 X8 Z8;
+G01 X0 Z2;
+G01 X-2 Z1;
+ 
+
+;Finalizing CNC Lathe 
+N20; End trajectory
+G70 P10 Q20 F0.1; Finishing cycle
+G28 U0 W0; Go to machine zero
+M05; Stop spindle
+M09; Coolant OFF
+M30; Program End/Reset
 ;***************************************************************************
