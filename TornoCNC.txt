@@ -1,0 +1,109 @@
+
+;******************************* Ejercicio 1 *******************************
+
+;Medida inicial del tejo: diámetro = 2.562plg , largo = 1.780plg
+
+;Preparing CNC Lathe
+G28 U0 W0; Go to machine zero
+G96 S650 M03; Set cutting speed to 650rpm in ofrward direction
+G50 S3500; Set cutting speed limit to 3500rpm
+G71 P10 Q20 U0.2 W0.2 D0.5 F0.2; Stock Removal Cycle
+M08; Coolant ON
+G20; Select inches as metric system
+G00 X2.662 Z0.1; Rapid motion positioning to coordinates
+N10; Start trajectory
+
+
+;Cutting operations
+
+;Outter cutting
+G01 X-0.1 Z0;
+G01 X-0.207 Z0;
+G01 X0.250 Z0.125; 
+G01 X0 Z1.295;
+G01 X0.13 ZO;
+G01 X0 Z0.173;
+G03 X0.062 Z0.031 R0.031;
+G01 X0.139 Z0;
+G01 X-0.006 Z0.092;
+G01 X0 Z0.037;
+G02 X-0.052 Z0.026 R0.026;
+G03 X-0.727 Z-0.153 R0.5;
+
+;Inner cutting
+G02 X-0.03 Z-0.015 R0.015;
+G01 X0 Z-0.116;
+G01 X-0.485 Z0;
+G01 X0 Z-0.62;
+G01 X0.6 Z0;
+G01 X0 Z-0.125;
+G01 X-0.0995 Z0;
+G01 X0 Z-0.625;
+G01 X-0.250 Z0.125;
+
+
+;Finalizing CNC Lathe
+N20; End trajectory
+G70 P10 Q20 F0.1; Finishing cycle
+G28 U0 W0; Go to machine zero
+M05; Stop spindle
+M09; Coolant OFF
+M30; Program End/Reset
+ 
+;***************************************************************************
+
+;******************************* Ejercicio 2 *******************************
+
+;Medida inicial del tejo: diámetro = 2.459plg , largo = 1.745plg
+
+;Preparing CNC Lathe      
+G28 U0 W0; Go to machine zero 
+G96 S650 M03; Set cutting speed to 650rpm in ofrward direction
+G50 S3500; Set cutting speed limit to 3500rpm
+G71 P10 Q20 U0.2 W0.2 D0.5 F0.2; Stock Removal Cycle
+M08; Coolant ON
+G20; Select inches as metric system
+G00 X2.559 Z0.1; Rapid motion positioning to coordinates
+N10; Start trajectory
+
+
+;Cutting operations         
+
+;Outter cutting
+G01 X-0.1 Z0;
+G01 X-1.159 Z0;
+G01 X0.402 Z0.2;
+G01 X0 Z1.021;
+G01 X0.058 Z0.029;
+G01 X0 Z0.328;
+G03 X0.092 Z0.046 R0.046;
+G01 X0.187 z0;
+G01 X-0.006 Z0.08; 
+G02 X-0.08 Z-0.04 R0.04;
+G01 X-0.218 Z0;
+G02 X-0.0625 Z-0.031 R0.031;
+
+;Inner cutting
+
+G03 X-0.179 Z-0.12 R0.25;
+G01 X-0.05 Z-0.042;
+G01 X0 Z-0.049;
+G03 X-0.125 Z-0.0625 R0.0625;
+G01 X-0.645 Z0;
+G01 X0 Z-0.305;
+G01 X0.13 Z0;
+G01 X0 Z-0.12;
+G01 X-0.0495 Z0;
+G01 X0 Z-1.0231;
+G01 X0.0937 Z-0.0469;
+ 
+
+;Finalizing CNC Lathe 
+N20; End trajectory
+G70 P10 Q20 F0.1; Finishing cycle
+G28 U0 W0; Go to machine zero
+M05; Stop spindle
+M09; Coolant OFF
+M30; Program End/Reset
+
+;***************************************************************************
